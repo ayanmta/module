@@ -1,0 +1,64 @@
+
+
+
+
+<body>
+
+
+<router-outlet></router-outlet>
+
+
+
+<a class='btn btn-success' *ngFor='let route of routes'[routerLink]=route.url>{{route.linkname}}</a>
+
+
+
+
+
+<h1  style='color:chartreuse' class='btn btn-basic' 
+ style='font-size: 50px'> <br> <br>
+  <br><br><br>
+PROJECT
+
+</h1>
+<div class="container-fluid">
+    
+<div>
+
+NAME:       <input type="text" name="name" class='form-control' [(ngModel)]="studentobj.name"><br>
+ROLL NO:    <input type="text" class='form-control' [readOnly]="isEdit" name="roll no" [(ngModel)]="studentobj.rollno"><br>
+School:     <input type="text" class='form-control' name="name" [(ngModel)]="studentobj.school"><br><br><br>
+<button type="submit"  class='btn btn-primary' (click)="addvalue()">   add values </button> <br> <br>
+
+</div>
+
+<table class="table table-dark"  border='5'  >
+  <tr>
+     <th style='color:chartreuse'>N a m e</th>
+     <th style='color:chartreuse' >R O L L  N U M</th>
+     <TH style='color:chartreuse'>S C H O O L</TH>
+     <th style='color:chartreuse'>action</th>
+     <th style='color:chartreuse'>action</th>
+
+
+  </tr>
+  <tr *ngFor="let studentobj of studentList">
+<td>{{studentobj.name}}</td>
+<td>{{studentobj.rollno}}</td>
+<td>{{studentobj.school}}</td>
+<td><button type='submit' class='btn btn-danger' (click)='delete(studentobj)'>Delete</button></td>
+<td><button type='submit' class='btn btn-warning' (click)='uppdate(studentobj)'>update </button><button type='submit' class='btn btn-warning' (click)='uppdate(studentobj)'>add</button></td>
+</tr>
+
+  
+</table>
+
+<br><br><br>
+
+  </div>
+<!-- 
+NAME:       <input type="text" name="name" [(ngModel)]="upname"><br>
+ROLL NO:    <input type="text" name="roll no" [(ngModel)]="uprollno"><br>
+School:     <input type="text" name="name" [(ngModel)]="upschool"><br><br><br>
+<button type="submit" (click)="addstudent(studentobj)">   update </button> -->
+</body>
